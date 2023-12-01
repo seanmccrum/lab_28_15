@@ -1,0 +1,45 @@
+#include "PlaylistNode.h"
+
+PlaylistNode::PlaylistNode(string uniqueIDInit, string songNameInit, string artistNameInit, int songLengthInit) {
+    this->uniqueID = uniqueIDInit;
+    this->songName = songNameInit;
+    this->artistName = artistNameInit;
+    this->songLength = songLengthInit;
+    this->nextNodePtr = 0;
+}
+
+PlaylistNode::PlaylistNode(string uniqueIDInit, string songNameInit, string artistNameInit, int songLengthInit, PlaylistNode* nextLoc) {
+    this->uniqueID = uniqueIDInit;
+    this->songName = songNameInit;
+    this->artistName = artistNameInit;
+    this->songLength = songLengthInit;
+    this->nextNodePtr = nextLoc;
+}
+//Accessors
+string PlaylistNode::GetID(){
+   return this->uniqueID;
+}
+string PlaylistNode::GetSongName(){
+   return this->songName;
+}
+string PlaylistNode::GetArtistName(){
+   return this->artistName;
+}
+int PlaylistNode::GetSongLength(){
+   return this->songLength;
+}
+PlaylistNode* PlaylistNode::GetNext(){
+   return this->nextNodePtr;
+}
+//Mutators
+void PlaylistNode::InsertAfter(PlaylistNode* nodePtr){
+   PlaylistNode* tmpNext;
+    tmpNext = this->nextNodePtr;
+    this->nextNodePtr = nodePtr;
+    nodePtr->nextNodePtr = tmpNext;
+}
+void PlaylistNode::SetNext(PlaylistNode* nodePtr){
+    this->nextNodePtr = nodePtr;
+}
+void PlaylistNode::PrintPlaylistNode(){
+}
