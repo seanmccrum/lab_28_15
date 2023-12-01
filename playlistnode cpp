@@ -42,4 +42,5 @@ void PlaylistNode::SetNext(PlaylistNode* nodePtr){
     this->nextNodePtr = nodePtr;
 }
 void PlaylistNode::PrintPlaylistNode(){
+   cout << "Unique ID: " << this->uniqueID << endl << "Song Name: " << this->songName << endl << "Artist Name: " << this->artistName << endl << "Song Length (in seconds): " << this->songLength << endl;
 }
