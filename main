@@ -44,10 +44,31 @@ PlaylistNode* ExecuteMenu(char option, string playlistTitle, PlaylistNode* headN
         lastNode = currNode;
    }
    else if(option == 'd'){ // Remove song
-      // TODO
-      
-      
-   }
+    cout << "REMOVE SONG" << endl;
+    cout << "Enter song's unique ID:" << endl;
+    cin >> userInput;
+
+    PlaylistNode* temp = headNode;
+    PlaylistNode* prev = nullptr;
+
+    while(temp != nullptr && temp->GetID() != userInput){
+        prev = temp;
+        temp = temp->GetNext();
+    }
+
+    if(temp == nullptr){
+        cout << "Song not found." << endl;
+    } else {
+        if(prev == nullptr){ // Removing head
+            headNode = temp->GetNext();
+        } else {
+            prev->SetNext(temp->GetNext());
+        }
+        cout << "\"" << temp->GetSongName() << "\" removed." << endl;
+        delete temp;
+    }
+}
+
    else if(option == 'c'){ // Change position of song
       // Not needed for the assignment
    }
